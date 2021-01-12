@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="7.0" layoutY="4.0" prefHeight="493.0" prefWidth="600.0">
+      <AnchorPane layoutX="4.0" layoutY="2.0" prefHeight="493.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="74.0" layoutY="28.0" prefHeight="27.0" prefWidth="61.0" text="County">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="288.0" layoutY="26.0" prefHeight="27.0" prefWidth="45.0" text="City">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ListView layoutX="14.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" />
+            <ComboBox layoutX="236.0" layoutY="59.0" prefWidth="150.0" />
+            <Button layoutX="457.0" layoutY="122.0" mnemonicParsing="false" text="Search">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="64.0" layoutY="307.0" text="City">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="419.0" layoutY="334.0" text="Label" />
+            <Label layoutX="419.0" layoutY="351.0" text="Label" />
+            <Label layoutX="419.0" layoutY="368.0" text="Label" />
+            <Label layoutX="419.0" layoutY="385.0" text="Label" />
+            <Label layoutX="419.0" layoutY="402.0" text="Label" />
+            <Label layoutX="419.0" layoutY="419.0" text="Label" />
+         </children>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></AnchorPane>

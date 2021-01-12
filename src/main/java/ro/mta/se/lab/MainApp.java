@@ -5,12 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import ro.mta.se.lab.model.Weather;
 import java.net.URL;
 
 
 public class MainApp extends Application {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws Exception {
+        Weather x=new Weather();
+        x.Call_API();
         launch(args);
     }
 
