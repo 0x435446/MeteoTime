@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="7.0" layoutY="4.0" prefHeight="493.0" prefWidth="600.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></AnchorPane>
+   </children>
+</AnchorPane>
