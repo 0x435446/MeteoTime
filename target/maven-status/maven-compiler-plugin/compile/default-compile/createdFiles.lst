@@ -1,3 +1,6 @@
+ro\mta\se\lab\model\Orase.class
+ro\mta\se\lab\model\FileDetails.class
 ro\mta\se\lab\MainApp.class
-ro\mta\se\lab\model\Cities.class
+ro\mta\se\lab\model\Countries.class
 ro\mta\se\lab\model\Weather.class
+ro\mta\se\lab\controller\WeatherC.class

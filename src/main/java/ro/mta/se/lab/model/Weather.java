@@ -1,5 +1,9 @@
 package ro.mta.se.lab.model;
 
+import javafx.beans.property.StringProperty;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -11,86 +15,130 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 
 public class Weather {
-    String Country;
-    String City;
     String Temp;
     String Key;
+    String Lat;
+    String Lon;
+    String Name;
+
+
+    String grade;
+    String grade_a;
+    String umiditate;
+    String presiune;
+    String vitezav;
+    String nori;
+    String vreme;
+
+    FileDetails f;
+
     public Weather() {
         setKey("ba15ea04b3f184dfca3b983297c4c234");
-        Cities x=new Cities();
+        f=new FileDetails();
     }
 
-    public void setCity(String city) {
-        City = city;
+
+    public String getLat() {
+        return Lat;
+    }
+
+    public void setLat(String lat) {
+        Lat = lat;
+    }
+
+    public String getLon() {
+        return Lon;
+    }
+
+    public void setLon(String lon) {
+        Lon = lon;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+    public FileDetails getF() {
+        return f;
+    }
+
+    public void setF(FileDetails f) {
+        this.f = f;
     }
 
     public void setKey(String key) {
         Key = key;
     }
-
-    public void setCountry(String country) {
-        Country = country;
+    public String getKey() {
+        return Key;
     }
 
-    public String getCity() {
-        return City;
+    public void setTemp(String temp) {
+        Temp = temp;
     }
 
-    public String getCountry() {
-        return Country;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
-    public String Get_from_Json(String word1, String word2, JSONObject jo) throws ParseException {
-        Object Weather= new JSONParser().parse(jo.get(word1).toString());
-        Object WeatherJ=new Object();
-        if(Weather.toString().charAt(0)=='['){
-            WeatherJ=new JSONParser().parse(Weather.toString().substring(1).replaceFirst(".$","").toString());
-        }
-        else{
-            WeatherJ=new JSONParser().parse(Weather.toString());
-        }
-        JSONObject WeatherO = (JSONObject) WeatherJ;
-        return WeatherO.get(word2).toString();
+    public void setGrade_a(String grade_a) {
+        this.grade_a = grade_a;
     }
 
+    public void setUmiditate(String umiditate) {
+        this.umiditate = umiditate;
+    }
 
+    public void setPresiune(String presiune) {
+        this.presiune = presiune;
+    }
 
-    public void Call_API() throws IOException, ParseException {
-        URL yahoo = new URL("https://api.openweathermap.org/data/2.5/weather?lat=55.591667&lon=37.740833&appid=ba15ea04b3f184dfca3b983297c4c234&units=metric");
-        URLConnection yc = yahoo.openConnection();
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(
-                        yc.getInputStream()));
-        String inputLine;
+    public void setVitezav(String vitezav) {
+        this.vitezav = vitezav;
+    }
 
-        StringBuilder everything = new StringBuilder();
-        while ((inputLine = in.readLine()) != null)
-            everything.append(inputLine);
-        Object obj = new JSONParser().parse(everything.toString());
-        JSONObject jo = (JSONObject) obj;
-        //System.out.println(Weather.toString().substring(1).replaceFirst(".$","").toString());
-        System.out.println("Vreme: "+Get_from_Json("weather","main",jo));
-        System.out.println("Temperatura: "+Get_from_Json("main","temp",jo));
-        System.out.println("Umiditate: "+Get_from_Json("main","humidity",jo));
-        System.out.println("Temperatura simtita: "+Get_from_Json("main","feels_like",jo));
-        System.out.println("Presiune: "+Get_from_Json("main","pressure",jo));
-        System.out.println("Viteza vantului: "+Get_from_Json("wind","speed",jo));
-        System.out.println("Nori: "+Get_from_Json("clouds","all",jo));
-        System.out.println(jo.toJSONString());
-        in.close();
+    public void setNori(String nori) {
+        this.nori = nori;
+    }
 
+    public void setVreme(String vreme) {
+        this.vreme = vreme;
+    }
 
+    public String getTemp() {
+        return Temp;
+    }
 
+    public String getGrade() {
+        return grade;
+    }
+
+    public String getGrade_a() {
+        return grade_a;
+    }
+
+    public String getUmiditate() {
+        return umiditate;
+    }
+
+    public String getPresiune() {
+        return presiune;
+    }
+
+    public String getVitezav() {
+        return vitezav;
+    }
+
+    public String getNori() {
+        return nori;
+    }
+
+    public String getVreme() {
+        return vreme;
     }
 }
