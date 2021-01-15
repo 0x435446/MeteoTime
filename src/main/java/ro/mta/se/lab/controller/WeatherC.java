@@ -44,9 +44,7 @@ public class WeatherC {
     @FXML
     private Label nori;
     @FXML
-    private Label TRY;
-    @FXML
-    private Button search;
+    private Label Vreme;
     @FXML
     private ComboBox<String> Countries;
     @FXML
@@ -133,12 +131,14 @@ public class WeatherC {
         umiditate.setText(this.WM.getUmiditate());
         vitezav.setText(this.WM.getVitezav());
         nori.setText(this.WM.getNori());
+        Vreme.setText(this.WM.getVreme());
     }
     public void Call_API() throws IOException, ParseException {
         Weather x= new Weather();
         System.out.println(x.getKey());
-        URL yahoo = new URL("https://api.openweathermap.org/data/2.5/weather?lat="+this.WM.getLat()+"&lon="+this.WM.getLon()+"&units=metric&appid="+x.getKey());
-        URLConnection yc = yahoo.openConnection();
+        URL url = new URL("https://api.openweathermap.org/data/2.5/weather?lat="+
+                this.WM.getLat()+"&lon="+this.WM.getLon()+"&units=metric&appid="+x.getKey());
+        URLConnection yc = url.openConnection();
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(
                         yc.getInputStream()));
@@ -150,7 +150,7 @@ public class WeatherC {
         JSONObject jo = (JSONObject) obj;
         City.setText(this.WM.getName());
         this.WM.setVreme(Get_from_Json("weather","main",jo));
-        this.WM.setGrade("Temperatura: "+Get_from_Json("main","temp",jo));
+        this.WM.setGrade(""+Get_from_Json("main","temp",jo)+"°");
         this.WM.setUmiditate("Umiditate: "+Get_from_Json("main","humidity",jo));
         this.WM.setGrade_a("Temperatura simtita: "+Get_from_Json("main","feels_like",jo));
         this.WM.setPresiune("Presiune: "+Get_from_Json("main","pressure",jo));
