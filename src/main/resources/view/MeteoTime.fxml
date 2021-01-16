@@ -31,12 +31,12 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="grade" layoutX="88.0" layoutY="319.0" text="Label" textFill="WHITE" />
-            <Label fx:id="grade_a" layoutX="357.0" layoutY="328.0" text="Label" textFill="WHITE" />
-            <Label fx:id="umiditate" layoutX="357.0" layoutY="345.0" text="Label" textFill="WHITE" />
-            <Label fx:id="presiune" layoutX="357.0" layoutY="362.0" text="Label" textFill="WHITE" />
-            <Label fx:id="vitezav" layoutX="357.0" layoutY="379.0" text="Label" textFill="WHITE" />
-            <Label fx:id="nori" layoutX="357.0" layoutY="396.0" text="Label" textFill="WHITE" />
+            <Label fx:id="grade" layoutX="88.0" layoutY="319.0" text="." textFill="WHITE" />
+            <Label fx:id="grade_a" layoutX="357.0" layoutY="328.0" text="." textFill="WHITE" />
+            <Label fx:id="umiditate" layoutX="357.0" layoutY="345.0" text="." textFill="WHITE" />
+            <Label fx:id="presiune" layoutX="357.0" layoutY="362.0" text="." textFill="WHITE" />
+            <Label fx:id="vitezav" layoutX="357.0" layoutY="379.0" text="." textFill="WHITE" />
+            <Label fx:id="nori" layoutX="357.0" layoutY="396.0" text="." textFill="WHITE" />
             <Button layoutX="294.0" layoutY="55.0" mnemonicParsing="false" onAction="#lBtn" prefHeight="39.0" prefWidth="77.0" text="Load">
                <font>
                   <Font size="18.0" />
@@ -44,12 +44,11 @@
             </Button>
             <ComboBox fx:id="Countries" layoutX="42.0" layoutY="159.0" onAction="#setCity" prefWidth="150.0" />
             <TextField fx:id="textbox" layoutX="120.0" layoutY="62.0" text="input.txt" />
-            <Label fx:id="Vreme" layoutX="88.0" layoutY="344.0" text="Label" textFill="WHITE" />
+            <Label fx:id="Vreme" layoutX="88.0" layoutY="344.0" text="." textFill="WHITE" />
             <ImageView fx:id="poza" fitHeight="54.0" fitWidth="69.0" layoutX="132.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true" />
          </children>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></AnchorPane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

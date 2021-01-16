@@ -21,7 +21,8 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader();
 
         try {
-            loader.setLocation(this.getClass().getResource("/view/MeteoTime.fxml"));
+            loader.setLocation(this.getClass().
+                    getResource("/view/MeteoTime.fxml"));
             primaryStage.setScene(new Scene(loader.load()));
             primaryStage.show();
         } catch (IOException e) {
