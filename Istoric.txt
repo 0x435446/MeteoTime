@@ -1,3 +1,10 @@
-Moscow: -15.63° °; Umiditate: Umiditate: 85; Presiune: Presiune: 1003;
-Razvilka: -15.24° °; Umiditate: Umiditate: 85; Presiune: Presiune: 1003;
-Tarascon: 6.32° °; Umiditate: Umiditate: 48; Presiune: Presiune: 1023;
+Thessaloniki: 2.83° °; Umiditate: Umiditate: 44; Presiune: Presiune: 1016;
+Berlin: 0.3° °; Umiditate: Umiditate: 74; Presiune: Presiune: 1020;
+Munich: -1.2° °; Umiditate: Umiditate: 90; Presiune: Presiune: 1017;
+Tarascon: 11.66° °; Umiditate: Umiditate: 54; Presiune: Presiune: 1020;
+Paris: 7.22° °; Umiditate: Umiditate: 76; Presiune: Presiune: 1024;
+Slatina: -3° °; Umiditate: Umiditate: 59; Presiune: Presiune: 1015;
+Bucharest: -2.2° °; Umiditate: Umiditate: 63; Presiune: Presiune: 1016;
+Slatina: -3° °; Umiditate: Umiditate: 59; Presiune: Presiune: 1015;
+ConstanÈ›a: -6.05° °; Umiditate: Umiditate: 68; Presiune: Presiune: 1015;
+Slatina: -3° °; Umiditate: Umiditate: 59; Presiune: Presiune: 1015;

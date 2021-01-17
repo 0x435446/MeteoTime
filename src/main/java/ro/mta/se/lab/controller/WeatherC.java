@@ -20,10 +20,19 @@ import java.net.URLConnection;
 
 import ro.mta.se.lab.model.Weather;
 
-
+/**
+ *
+ * Aceasta clasa reprezinta clasa ce rezolva interactiunea
+ * principala dintre utilizator si UI
+ * @author Cujba Mihai-Catalin
+ */
 
 public class WeatherC {
-
+    /**
+     *
+     * definirea variabilelor de legatura dintre cod si UI
+     *
+     */
     @FXML
     private TextField textbox;
     @FXML
@@ -47,14 +56,26 @@ public class WeatherC {
     @FXML
     private Label City;
 
+
+
     IstoricC istoric;
     Weather WM;
+    /**
+     *
+     * functia apelata la rularea programului
+     *
+     */
     @FXML
     public void initialize() throws IOException, ParseException {
         WM=new Weather();
         istoric=new IstoricC();
     }
 
+    /**
+     *
+     * functia ce are rolul de a popula lista de tari
+     *
+     */
     void populateComboBox(){
         ObservableList<String> tari= FXCollections.observableArrayList();
         for(int i=0;i<WM.getF().getCountry().size();i++){
@@ -62,7 +83,13 @@ public class WeatherC {
         }
         Countries.setItems(tari);
     }
-
+    /**
+     *
+     * functia ce are rolul de parsare a Json-ului
+     * @param word1 reprezinta radacina json-ului
+     * @param word2 reprezinta campul din json cautat
+     * @param jo reprezinta json-ul
+     */
     public String Get_from_Json(String word1,
                                 String word2, JSONObject jo) throws ParseException {
         Object Weather= new JSONParser().parse(jo.get(word1).toString());
@@ -77,10 +104,25 @@ public class WeatherC {
         JSONObject WeatherO = (JSONObject) WeatherJ;
         return WeatherO.get(word2).toString();
     }
-
+    /**
+     *
+     * functia are rolul de a apela functia de citire a fisierului setat
+     * in obiectul de tip ReadFileC
+     * @param x - parametrul functiei ce se ocupa cu citirea fisierului
+     *          de intrare
+     *
+     */
     public Weather readFile(ReadFileC x){
         return x.readFile();
     }
+
+
+    /**
+     *
+     * reprezinta functia de setare a datelor in interfata grafica
+     *
+     */
+
 
     public void set_data() throws IOException {
         presiune.setText(this.WM.getPresiune());
@@ -90,8 +132,17 @@ public class WeatherC {
         vitezav.setText(this.WM.getVitezav());
         nori.setText(this.WM.getNori());
         Vreme.setText(this.WM.getVreme());
-        istoric.Write_to_file(this.WM.getName());
+        istoric.Write_to_file();
     }
+
+    /**
+     *
+     * reprezinta functia de trimitere a request-ului catre API-ul
+     * ce are rol de trimitere a datelor meteorologice si popularea
+     * obiectului de tip Weather cu valorile extrase din json
+     *
+     */
+
     public void Call_API() throws IOException, ParseException {
         Weather x= new Weather();
         System.out.println(x.getKey());
@@ -124,11 +175,18 @@ public class WeatherC {
                 "Viteza vantului: "+Get_from_Json("wind","speed",jo)+" km/h");
         this.WM.setNori(
                 "Nori: "+Get_from_Json("clouds","all",jo));
-        this.istoric.add_Oras(this.WM.getName()+": "+this.WM.getGrade()+" °;"+" Umiditate: "+this.WM.getUmiditate()+"; Presiune: "+this.WM.getPresiune()+";");
+        this.istoric.add_Oras(this.WM.getName()+": "+
+                this.WM.getGrade()+" °;"+" Umiditate: "+
+                this.WM.getUmiditate()+"; Presiune: "+
+                this.WM.getPresiune()+";");
         System.out.println(jo.toJSONString());
         in.close();
     }
-
+    /**
+     *
+     * reprezinta handler-ul pentru actiunea butonului de search
+     *
+     */
     public void hBtn(ActionEvent actionEvent)
             throws IOException, ParseException {
         if(!Cities.getSelectionModel().isEmpty()) {
@@ -136,7 +194,11 @@ public class WeatherC {
             this.set_data();
         }
     }
-
+    /**
+     *
+     * reprezinta handler-ul pentru actiunea butonului de load
+     *
+     */
     public void lBtn(ActionEvent actionEvent)
             throws IOException, ParseException {
         if(!textbox.getText().isEmpty()) {
@@ -145,7 +207,12 @@ public class WeatherC {
             this.populateComboBox();
         }
     }
-
+    /**
+     *
+     * reprezinta handler-ul pentru actiunea de alegere a tarii
+     * are rolul de a popula lista de orase
+     *
+     */
     public void setCity(ActionEvent actionEvent) {
         if(!Countries.getSelectionModel().isEmpty()){
             ObservableList<String> orase= FXCollections.observableArrayList();
@@ -166,7 +233,11 @@ public class WeatherC {
             Cities.setItems(orase);
         }
     }
-
+    /**
+     *
+     * reprezinta handler-ul pentru actiunea alegerii orasului
+     *
+     */
     public void setDatas(ActionEvent actionEvent) {
         if(!Cities.getSelectionModel().isEmpty()){
             String oras=Cities.getValue().toString();
@@ -180,8 +251,6 @@ public class WeatherC {
                                 get(i).getOrase().get(j).getLat());
                         this.WM.setLon(this.WM.getF().getCountry().
                                 get(i).getOrase().get(j).getLon());
-                        System.out.println(this.WM.getLat());
-                        System.out.println(this.WM.getLon());
                     }
                 }
             }

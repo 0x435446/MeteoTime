@@ -15,11 +15,20 @@ public class IstoricC {
     public IstoricC() {
         lista=new Istoric();
     }
-
+    /**
+     *
+     * reprezinta functia de adaugare oras la lista de orase cautate
+     * @param oras reprezinta orasul ce va fi adaugat in lista
+     *
+     */
     public void add_Oras(String oras){
         lista.Orase_vizitate.add(oras);
     }
-
+    /**
+     *
+     * reprezinta functia ce returneaza istoricul cautarilor
+     *
+     */
     public String get_Orase(){
         StringBuilder history= new StringBuilder();
         for(int i=0;i<lista.Orase_vizitate.size();i++){
@@ -27,8 +36,12 @@ public class IstoricC {
         }
         return history.toString();
     }
-
-    public void Write_to_file(String Oras) throws IOException {
+    /**
+     *
+     * reprezinta functia ce scrie in fisier istoricul
+     *
+     */
+    public void Write_to_file() throws IOException {
         String contentToAppend = get_Orase();
         Files.write(
                 Paths.get("Istoric.txt"),

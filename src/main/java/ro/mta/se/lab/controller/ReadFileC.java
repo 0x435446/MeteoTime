@@ -19,7 +19,12 @@ public class ReadFileC {
         this.WM = new Weather();
         this.FileName=FileName;
     }
-
+    /**
+     *
+     * reprezinta functia de citire a fisierului
+     * si populare aobiectylui de tip Weather
+     *
+     */
     public Weather readFile() {
         try {
             File myObj = new File(this.FileName);
